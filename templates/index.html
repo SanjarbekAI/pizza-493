@@ -1,0 +1,318 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" dir="ltr">
+
+<!-- BEGIN head -->
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Butazzo Pizza - Restaurant, Cafe, Fast Food business HTML5 Responsive, CSS3 One Page Template</title>
+
+    <!-- Stylesheets -->
+    <link href="{% static 'css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" media="all" />
+    <link href="{% static 'css/bootstrap-theme.min.css' %}" type="text/css" rel="stylesheet" media="all" />
+    <link href="{% static 'css/fonts.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.min.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/slick.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/slick-theme.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/aos.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/scrolling-nav.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap-datepicker.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap-datetimepicker.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/touch-sideswipe.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/jquery.fancybox.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/main.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/responsive.css' %}" type="text/css" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="256x256"  href="{% static 'img/favicon/android-chrome-256x256.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'img/favicon/android-chrome-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}" />
+    <link rel="icon" type="image/png" href="{% static 'img/favicon/favicon.ico' %}" />
+    <link rel="manifest" href="{% static 'img/site.html' %}" />
+    <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#990100" />
+    <meta name="theme-color" content="#ffffff" />    
+
+</head>
+<!-- END head -->
+
+<!-- BEGIN body -->
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  
+    <!-- BEGIN  Loading Section -->  
+    <div class="loading-overlay">
+        <div class="spinner">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- END Loading Section -->    
+
+    <!-- BEGIN body wrapper -->
+    <div class="body-wrapper">
+
+        {% include 'header.html' %}
+
+        <!--    About Us    -->
+        <div class="container section" id="about_us">
+            <div class="col-sm-12 d-flex flex-xs-column">
+                <div class="col-sm-6 d-flex align-items-center padd_lr0" data-aos="fade-up">
+                    <div class="content">
+                        <h1 class="section-title title_sty1">about us</h1>
+                        <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 img text-center padd_lr0" data-aos="fade-down">
+                    <div class="border_on">
+                        <img src="{% static 'img/photos/about-us.jpg' %}" alt="sample" class="about_img" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--    Menus   -->
+        <div class="container section" id="menu" data-aos="fade-up">
+            <div class="title-block">
+                <h1 class="section-title">Our Menus</h1>
+            </div>
+
+            <!--    Menus filter    -->
+            <div class="menu_filter text-center">
+                <ul class="list-unstyled list-inline d-inline-block">
+                    <li class="item active">
+                        <a href="javascript:;" class="filter-button" data-filter="burger">Burger</a>
+                    </li>
+                    <li class="item">
+                        <a href="javascript:;" class="filter-button" data-filter="pizza">Pizza</a>
+                    </li>
+                    <li class="item">
+                        <a href="javascript:;" class="filter-button" data-filter="salad">Salad</a>
+                    </li>
+                    <li class="item">
+                        <a href="javascript:;" class="filter-button" data-filter="frices">Frices</a>
+                    </li>
+                    <li class="item">
+                        <a href="javascript:;" class="filter-button" data-filter="drinks">Drinks</a>
+                    </li>
+                </ul>
+            </div> 
+
+            <!--    Menus items     -->
+            <div id="menu_items">
+
+                <div class="filtr-item image filter burger active">
+                    <div class="row">
+                        {% for burger in burgers %}
+                        <div class="col-sm-6">
+                            <a href="{{ burger.image.url }}" class="block fancybox" data-fancybox-group="fancybox">
+                                <div class="content">
+                                    <div class="filter_item_img">
+                                        <i class="fa fa-search-plus"></i>
+                                        <img src="{{ burger.image.url }}" alt="sample" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="name">{{ burger.title }}</div>
+                                        <div class="short">{{ burger.description }}</div>
+                                        <span class="filter_item_price">${{ burger.price }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="filtr-item image filter pizza">
+                    <div class="row">
+                        {% for piz in pizza %}
+                        <div class="col-sm-6">
+                            <a href="{{ piz.image.url }}" class="block fancybox" data-fancybox-group="fancybox">
+                                <div class="content">
+                                    <div class="filter_item_img">
+                                        <i class="fa fa-search-plus"></i>
+                                        <img src="{{ piz.image.url }}" alt="sample" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="name">{{ piz.title }}</div>
+                                        <div class="short">{{ piz.description }}</div>
+                                        <span class="filter_item_price">${{ piz.price }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="filtr-item image filter salad">
+                    <div class="row">
+                        {% for salad in salads %}
+                        <div class="col-sm-6">
+                            <a href="{{ salad.image.url }}" class="block fancybox" data-fancybox-group="fancybox">
+                                <div class="content">
+                                    <div class="filter_item_img">
+                                        <i class="fa fa-search-plus"></i>
+                                        <img src="{{ salad.image.url }}" alt="sample" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="name">{{ salad.title }}</div>
+                                        <div class="short">{{ salad.description }}</div>
+                                        <span class="filter_item_price">${{ salad.price }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="filtr-item image filter frices">
+                    <div class="row">
+                        {% for free in fries %}
+                        <div class="col-sm-6">
+                            <a href="{{ free.image.url }}" class="block fancybox" data-fancybox-group="fancybox">
+                                <div class="content">
+                                    <div class="filter_item_img">
+                                        <i class="fa fa-search-plus"></i>
+                                        <img src="{{ free.image.url }}" alt="sample" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="name">{{ free.title }}</div>
+                                        <div class="short">{{ free.description }}</div>
+                                        <span class="filter_item_price">${{ free.price }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="filtr-item image filter drinks">
+                    <div class="row">
+                        {% for drink in drinks %}
+                        <div class="col-sm-6">
+                            <a href="{{ drink.image.url }}" class="block fancybox" data-fancybox-group="fancybox">
+                                <div class="content">
+                                    <div class="filter_item_img">
+                                        <i class="fa fa-search-plus"></i>
+                                        <img src="{{ drink.image.url }}" alt="sample" />
+                                    </div>
+                                    <div class="info">
+                                        <div class="name">{{ drink.title }}</div>
+                                        <div class="short">{{ drink.description }}</div>
+                                        <span class="filter_item_price">${{ drink.price }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--    Reservation    -->
+
+        {% include 'reservation.html' %}
+
+
+        <!--    Gallery    -->
+        <div class="container section" id="gallery" data-aos="fade-up">
+            <div class="title-block">
+                <h1 class="section-title">Gallery</h1>
+            </div>
+            <div id="photo_gallery" class="list1">
+                <div class="row loadMore">
+                    {% for image in images %}
+                    <div class="col-sm-4 col-md-3 item">
+                        <a href="{{ image.image.url }}" class="block fancybox" data-fancybox-group="fancybox">
+                            <div class="content">
+                                <img src="{{ image.image.url }}" alt="sample" />
+                                <div class="zoom">
+                                    <span class="zoom_icon"><i class="fa fa-search-plus"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div> 
+            </div>
+        </div>
+
+        <!-- End Sections -->
+
+        {% include 'footer.html' %}
+
+    </div>
+    <!-- END body-wrapper -->
+
+
+    <!-- START mobile right burger menu -->
+
+    <nav class="cd-nav-container right_menu" id="cd-nav">
+        <div class="header__open_menu">
+            <a href="" class="rmenu_logo" title="yagmurmebel.az">
+                <img src="{% static 'img/logo.png' %}" alt="logo" />
+            </a>
+        </div>
+        <div class="right_menu_search">
+            <form method="post">
+                <input type="text" name="q" class="form-control search_input" value="" placeholder="Search anything">
+                <button type="submit" class="search_icon"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <ul class="rmenu_list">
+            <li><a class="page-scroll" href="#header">Home</a></li>
+            <li><a class="page-scroll" href="#about_us">About</a></li>
+            <li><a class="page-scroll" href="#menu">Menus</a></li>
+            <li><a class="page-scroll" href="#gallery">Gallery</a></li>
+            <li><a class="page-scroll" href="#reservation">Reservation</a></li>
+            <li><a class="page-scroll" href="#footer">Contact</a></li>
+        </ul>
+        <div class="right_menu_addr top_addr">
+            <span><i class="fa fa-map-marker" aria-hidden="true"></i> Your country, your city, 12345</span>
+            <span><i class="fa fa-phone" aria-hidden="true"></i> 123 456 789</span>
+            <span><i class="fa fa-clock-o" aria-hidden="true"></i> 11:00 - 21:00</span>
+        </div>
+    </nav>
+
+    <div class="cd-overlay"></div>
+    <!-- /.cd-overlay -->
+         
+
+    <!-- END mobile right burger menu -->
+
+    <!-- JavaScript -->
+    <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mousewheel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/scrolling-nav.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/jquery.touchSwipe.min.js' %}"></script>
+    <script src="{% static 'js/moment.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.js' %}"></script>
+    <script src="{% static 'js/loadMoreResults.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcg5Y2D1fpGI12T8wcbtPIsyGdw-_NV1Y&amp;callback=myMap"></script>
+
+</body>
+
+</html> 
